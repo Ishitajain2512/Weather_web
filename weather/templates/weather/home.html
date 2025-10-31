@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App - IST</title>
+  <link rel="stylesheet" href="{% static 'weather.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>🌤 Weather in IST</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="city" placeholder="Enter city name" required>
+      <button type="submit">Get Weather</button>
+    </form>
+
+    {% if weather %}
+      <div class="result">
+        <h2>{{ weather.city }}</h2>
+        <p>{{ weather.temp }}°C | {{ weather.desc }}</p>
+        <p><small>Time: {{ weather.time }}</small></p>
+      </div>
+    {% elif error %}
+      <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if history %}
+      <hr>
+      <h3>🕓 Recent Searches (IST)</h3>
+      <table>
+        <tr>
+          <th>City</th>
+          <th>Temp (°C)</th>
+          <th>Description</th>
+          <th>Time</th>
+        </tr>
+        {% for h in history %}
+        <tr>
+          <td>{{ h.city }}</td>
+          <td>{{ h.temp }}</td>
+          <td>{{ h.desc }}</td>
+          <td>{{ h.time }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pyc
+
+# Virtual Environment
+venv/
+.env/
+ENV/
+env/
+.venv/
+.env
+# Django Stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Pytest / Coverage / Cache
+.coverage
+htmlcov/
+*.cover
+.pytest_cache/
+.cache/
+
+# Migrations (optional — uncomment if you don't want to track them)
+# */migrations/
+
+# Other temporary files
+*.bak
+*.swp
